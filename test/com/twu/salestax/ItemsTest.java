@@ -6,12 +6,11 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class UtilTest {
+public class ItemsTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
@@ -23,22 +22,12 @@ public class UtilTest {
     }
 
     @Test
-    public void shouldBeAbleToCalculate10PercentageTax() {
-        double actualResult = Util.calculateTax(14.99, 10);
+    public void shouldBeAbleToFindTypeOfTheItem() {
+        Items items = new Items();
 
-        assertThat(actualResult, is(16.49));
-    }
+        String actualResult = items.findTypeOf("1 packet of headache pills at 9.75");
 
-    @Test
-    public void shouldBeAbleToParseStrings() {
-        ArrayList<String> expectedList = new ArrayList<>();
-        expectedList.add("1");
-        expectedList.add("music CD");
-        expectedList.add("14.99");
-
-        ArrayList<String> actualList = Util.parseString("1 music CD at 14.99");
-
-        assertThat(actualList, is(expectedList));
+        assertThat(actualResult, is("medicine"));
     }
 
     @After
