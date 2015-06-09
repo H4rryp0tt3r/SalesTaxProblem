@@ -26,7 +26,7 @@ public class UtilTest {
     public void shouldBeAbleToCalculate10PercentageTax() {
         double actualResult = Util.calculateTax(14.99, 10);
 
-        assertThat(actualResult, is(16.49));
+        assertThat(actualResult, is(1.5));
     }
 
     @Test
