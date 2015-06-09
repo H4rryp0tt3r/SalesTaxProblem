@@ -1,6 +1,8 @@
 package com.twu.salestax;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Util {
 
@@ -26,5 +28,11 @@ public class Util {
             result += anotherData[i] + " ";
         }
         return result.replaceAll("\\s+$", "");
+    }
+
+    public static Boolean isImported(String itemName) {
+        Pattern pattern = Pattern.compile("imported");
+        Matcher matcher = pattern.matcher(itemName);
+        return (matcher.find())?true:false;
     }
 }
